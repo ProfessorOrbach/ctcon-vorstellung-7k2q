@@ -70,6 +70,26 @@ nav a.on{opacity:1;transform:scale(1.4)}
 @keyframes dash{to{stroke-dashoffset:-40}}
 .flow{stroke-dasharray:6 6;animation:dash 2s linear infinite}
 @media(prefers-reduced-motion:reduce){.p,.flow{animation:none}.reveal{opacity:1;transform:none;transition:none}}
+
+/* podcast */
+.pod{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;max-width:980px}
+.cover{width:min(260px,60vw);aspect-ratio:1;border-radius:22px;background:linear-gradient(135deg,var(--dark),var(--berry) 55%,var(--pink));box-shadow:0 20px 50px rgba(81,0,46,.35);display:grid;place-items:center;position:relative;overflow:hidden}
+.cover svg{width:78%;height:auto}
+.cover b{position:absolute;left:16px;bottom:12px;color:#fff;font-weight:900;font-size:1.3rem;letter-spacing:-.02em}
+.cover em{position:absolute;right:14px;top:12px;color:#fff;opacity:.8;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-style:normal}
+.player{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--pink);border-radius:10px;padding:20px 22px;margin-top:18px}
+.wave{display:flex;align-items:center;gap:3px;height:54px;cursor:pointer}
+.wave i{flex:1;background:var(--line);border-radius:3px;min-width:2px;transition:background .15s}
+.wave i.d{background:linear-gradient(180deg,var(--pink),var(--berry))}
+.ctrl{display:flex;align-items:center;gap:14px;margin-top:12px;font-size:.85rem;color:var(--grey)}
+.play{width:54px;height:54px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--berry),var(--pink));color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 16px rgba(226,0,122,.4);flex:none}
+.play:hover{transform:scale(1.07)}
+.play svg{width:22px;height:22px;fill:#fff}
+.sp,.sk{background:transparent;border:1px solid var(--pink);color:var(--pink);border-radius:99px;padding:4px 12px;cursor:pointer;font:500 .8rem Roboto,sans-serif}
+.sp:hover,.sk:hover{background:var(--pink);color:#fff}
+.ctrl .t{margin-left:auto;font-variant-numeric:tabular-nums}
+.play:focus-visible,.sp:focus-visible,.sk:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+@media(max-width:800px){.pod{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -80,7 +100,7 @@ nav a.on{opacity:1;transform:scale(1.4)}
   <div class="tag">Unternehmenspräsentation</div>
   <h1>CT<span style="opacity:.75">con</span></h1>
   <p class="lead">Die Top-Managementberatung für Unternehmenssteuerung – Analyse, Konzeption, Umsetzung und Verankerung.</p>
-  <p class="note">Quelle: ctcon.de · Stand Oktober 2026 · Zusammenstellung aus öffentlich verfügbaren Informationen</p></div>
+  <p style="margin-top:22px"><a href="#s7b" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#860351;font-weight:700;padding:11px 22px;border-radius:99px;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.25)"><svg width="18" height="18" viewBox="0 0 24 24" fill="#e2007a"><path d="M7 4l13 8-13 8z"/></svg>Podcast anhören</a></p><p class="note">Quelle: ctcon.de · Stand Oktober 2026 · Zusammenstellung aus öffentlich verfügbaren Informationen</p></div>
   <svg viewBox="0 0 400 400" aria-hidden="true">
 <defs><linearGradient id="g1" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity=".9"/></linearGradient></defs>
 <g fill="none" stroke="#fff" stroke-opacity=".25"><circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="140"/><circle cx="200" cy="200" r="90"/></g>
@@ -176,6 +196,30 @@ nav a.on{opacity:1;transform:scale(1.4)}
   <p class="note">Weitere Anknüpfungspunkte: Handel mit Analytics (Frischesortiment, Sortimentstrends), Turnaround mit Daten, Data-Scientist-Karrierepfad, Rolle des Controllings als Architekt der KI-Governance.</p>
 </section>
 
+<section class="grad" id="s7b">
+  <div class="tag">Heldenpodcast</div>
+  <h2>Hören statt lesen</h2>
+  <div class="pod">
+    <div class="cover reveal"><svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#fff" stroke-opacity=".3"><circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="64"/></g><g fill="#fff"><rect x="42" y="84" width="9" height="32" rx="4.500"/><rect x="58" y="68" width="9" height="64" rx="4.500"/><rect x="74" y="52" width="9" height="96" rx="4.500"/><rect x="90" y="76" width="9" height="48" rx="4.500"/><rect x="106" y="40" width="9" height="120" rx="4.500"/><rect x="122" y="64" width="9" height="72" rx="4.500"/><rect x="138" y="80" width="9" height="40" rx="4.500"/></g></svg><em>Podcast</em><b>CT<span style="opacity:.75">con</span></b></div>
+    <div>
+      <h1 style="font-size:clamp(1.6rem,3.4vw,2.6rem)">Echtzeit-Prognosen ersetzen die starre Quartalsplanung</h1>
+      <p class="lead" style="margin-top:.8rem">Warum Forecasting vom Quartalsritual zum ständigen Dialog wird, und was KI dabei leistet.</p>
+      <div class="player" style="color:var(--ink)">
+        <div class="wave" id="wave" role="slider" aria-label="Position im Podcast" tabindex="0"></div>
+        <div class="ctrl">
+          <button class="play" id="play" aria-label="Abspielen"><svg viewBox="0 0 24 24" id="ic"><path d="M7 4l13 8-13 8z"/></svg></button>
+          <button class="sk" id="back" aria-label="15 Sekunden zurück">−15 s</button>
+          <button class="sk" id="fwd" aria-label="30 Sekunden vor">+30 s</button>
+          <button class="sp" id="sp" aria-label="Geschwindigkeit">1×</button>
+          <span class="t"><span id="cur">0:00</span> / <span id="dur">5:35</span></span>
+        </div>
+        <audio id="aud" preload="metadata" src="podcast.m4a"></audio>
+      </div>
+      <p class="note">Audio-Zusammenfassung zur CTcon-Vorstellung, Dauer rund 5½ Minuten.</p>
+    </div>
+  </div>
+</section>
+
 <section class="grad" id="s8">
   <div class="tag">Kontakt</div>
   <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Zielführung starten.</h1>
@@ -189,9 +233,26 @@ secs.forEach((s,i)=>{const a=document.createElement('a');a.href='#'+s.id;nav.app
 const dots=[...nav.children];
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)dots.forEach((d,i)=>d.classList.toggle('on',secs[i]===e.target))}),{threshold:.55}).observe&&secs.forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)dots.forEach((d,i)=>d.classList.toggle('on',secs[i]===e.target))}),{threshold:.55}).observe(s));
 document.querySelectorAll('.reveal').forEach((e,i)=>{e.style.transitionDelay=(i%4)*90+'ms'});const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
-addEventListener('keydown',e=>{const cur=Math.round(scrollY/innerHeight);
+addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('button'))return;const cur=Math.round(scrollY/innerHeight);
  if(['ArrowDown','PageDown',' ','ArrowRight'].includes(e.key)){e.preventDefault();secs[Math.min(cur+1,secs.length-1)].scrollIntoView()}
  if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){e.preventDefault();secs[Math.max(cur-1,0)].scrollIntoView()}});
+
+(()=>{const a=document.getElementById('aud'),w=document.getElementById('wave'),pl=document.getElementById('play'),ic=document.getElementById('ic'),cur=document.getElementById('cur'),du=document.getElementById('dur'),sp=document.getElementById('sp');
+const N=64,bars=[];let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+for(let i=0;i<N;i++){const b=document.createElement('i');const h=18+Math.abs(Math.sin(i*.35))*45+rnd()*35;b.style.height=Math.min(100,h)+'%';w.appendChild(b);bars.push(b)}
+const f=t=>{t=Math.floor(t||0);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+const P='<path d="M7 4l13 8-13 8z"/>',Q='<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>';
+pl.onclick=()=>a.paused?a.play():a.pause();
+a.onplay=()=>{ic.innerHTML=Q;pl.setAttribute('aria-label','Pause')};a.onpause=()=>{ic.innerHTML=P;pl.setAttribute('aria-label','Abspielen')};
+a.onloadedmetadata=()=>du.textContent=f(a.duration);
+a.ontimeupdate=()=>{cur.textContent=f(a.currentTime);const k=a.duration?Math.round(a.currentTime/a.duration*N):0;bars.forEach((b,i)=>b.classList.toggle('d',i<k));w.setAttribute('aria-valuenow',Math.round(a.currentTime))};
+const seek=x=>{const r=w.getBoundingClientRect();if(a.duration)a.currentTime=Math.max(0,Math.min(1,(x-r.left)/r.width))*a.duration};
+w.onclick=e=>seek(e.clientX);
+w.onkeydown=e=>{if(e.key==='ArrowRight'){a.currentTime+=10;e.stopPropagation();e.preventDefault()}if(e.key==='ArrowLeft'){a.currentTime-=10;e.stopPropagation();e.preventDefault()}};
+document.getElementById('back').onclick=()=>a.currentTime=Math.max(0,a.currentTime-15);
+document.getElementById('fwd').onclick=()=>a.currentTime=Math.min(a.duration||1e9,a.currentTime+30);
+const sps=[1,1.25,1.5,2,.75];let si=0;sp.onclick=()=>{si=(si+1)%sps.length;a.playbackRate=sps[si];sp.textContent=sps[si]+'×'};
+})();
 </script>
 </body>
 </html>
