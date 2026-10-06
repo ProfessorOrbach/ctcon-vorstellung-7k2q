@@ -11,9 +11,9 @@
 :root{--berry:#860351;--pink:#e2007a;--dark:#51002e;--grey:#6c757d;--ink:#212529;--light:#f8f9fa;--line:#dee2e6;--bg:#fff;--card:#fff}
 @media (prefers-color-scheme:dark){:root{--bg:#1b0a14;--card:#2a1020;--ink:#f3e9ee;--light:#2a1020;--line:#4a2a3c;--grey:#b9a3af}}
 *{box-sizing:border-box;margin:0}
-html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+html{overflow-x:hidden;scroll-snap-type:y mandatory;scroll-behavior:smooth}
 body{font-family:Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
-section{min-height:100vh;scroll-snap-align:start;padding:6vh max(24px,7vw);display:flex;flex-direction:column;justify-content:center;position:relative}
+section{overflow:hidden;min-height:100vh;scroll-snap-align:start;padding:6vh max(24px,7vw);display:flex;flex-direction:column;justify-content:center;position:relative}
 .grad{background:linear-gradient(135deg,var(--dark),var(--berry) 55%,var(--pink));color:#fff}
 .tag{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--pink);margin-bottom:.6rem}
 .grad .tag{color:#fff;opacity:.8}
@@ -47,55 +47,84 @@ nav a.on{opacity:1;transform:scale(1.4)}
 .hint{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);font-size:.75rem;color:var(--grey);z-index:9}
 @media(max-width:700px){nav{display:none}.bar{grid-template-columns:110px 1fr 34px}}
 @media print{section{min-height:auto;page-break-after:always}nav,.hint{display:none}}
+
+/* visuals */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.hero svg{width:100%;height:auto;max-height:70vh}
+.deco{position:absolute;right:-8vw;top:-8vw;width:34vw;max-width:420px;opacity:.12;pointer-events:none}
+.grad .deco{opacity:.18}
+.ico{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--berry),var(--pink));display:grid;place-items:center;margin-bottom:12px;box-shadow:0 6px 16px rgba(226,0,122,.25)}
+.ico svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.person{display:flex;gap:14px;align-items:flex-start}
+.av{flex:none;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--dark),var(--pink));color:#fff;font-weight:700;display:grid;place-items:center;font-size:1rem;box-shadow:0 4px 12px rgba(134,3,81,.3)}
+.viz{width:100%;height:auto;margin-bottom:10px;border-radius:6px;background:linear-gradient(135deg,rgba(134,3,81,.07),rgba(226,0,122,.07))}
+.card{transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(134,3,81,.18)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+.map{width:100%;max-width:520px;height:auto}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+@media(max-width:800px){.hero,.twocol{grid-template-columns:1fr}.hero svg{max-height:40vh}}
+@keyframes pulse{0%,100%{r:5;opacity:1}50%{r:9;opacity:.5}}
+.p{animation:pulse 2.6s infinite}
+@keyframes dash{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 6;animation:dash 2s linear infinite}
+@media(prefers-reduced-motion:reduce){.p,.flow{animation:none}.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 <nav id="nav"></nav>
 <div class="hint">↑ ↓ / Leertaste zum Blättern</div>
 
-<section class="grad" id="s0">
+<section class="grad" id="s0"><div class="hero"><div>
   <div class="tag">Unternehmenspräsentation</div>
   <h1>CT<span style="opacity:.75">con</span></h1>
   <p class="lead">Die Top-Managementberatung für Unternehmenssteuerung – Analyse, Konzeption, Umsetzung und Verankerung.</p>
-  <p class="note">Quelle: ctcon.de · Stand Oktober 2026 · Zusammenstellung aus öffentlich verfügbaren Informationen</p>
-</section>
+  <p class="note">Quelle: ctcon.de · Stand Oktober 2026 · Zusammenstellung aus öffentlich verfügbaren Informationen</p></div>
+  <svg viewBox="0 0 400 400" aria-hidden="true">
+<defs><linearGradient id="g1" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity=".9"/></linearGradient></defs>
+<g fill="none" stroke="#fff" stroke-opacity=".25"><circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="140"/><circle cx="200" cy="200" r="90"/></g>
+<g class="flow" stroke="#fff" stroke-opacity=".55" fill="none"><path d="M60 300 L130 230 L190 260 L250 160 L330 110"/><path d="M90 120 L150 170 L190 260"/><path d="M250 160 L320 230 L290 320"/></g>
+<g fill="#fff"><circle class="p" cx="130" cy="230" r="5"/><circle class="p" cx="250" cy="160" r="5" style="animation-delay:.5s"/><circle class="p" cx="190" cy="260" r="5" style="animation-delay:1s"/><circle class="p" cx="330" cy="110" r="7" style="animation-delay:1.5s"/><circle cx="60" cy="300" r="4"/><circle cx="90" cy="120" r="4"/><circle cx="320" cy="230" r="4"/><circle cx="290" cy="320" r="4"/></g>
+<g fill="url(#g1)"><rect x="95" y="320" width="22" height="40" rx="3"/><rect x="127" y="300" width="22" height="60" rx="3"/><rect x="159" y="280" width="22" height="80" rx="3"/><rect x="191" y="250" width="22" height="110" rx="3"/><rect x="223" y="220" width="22" height="140" rx="3"/></g>
+</svg></div></section>
 
-<section id="s1">
+<section id="s1"><svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#e2007a" stroke-width="2"><circle cx="100" cy="100" r="95"/><circle cx="100" cy="100" r="65"/><circle cx="100" cy="100" r="35"/></g></svg>
   <div class="tag">Auf einen Blick</div>
   <h2>Beratung für CEOs und CFOs seit 1992</h2>
   <div class="grid">
-    <div class="card stat"><div class="num">1992</div><span>Gegründet als Spin-off der WHU – Otto Beisheim School of Management</span></div>
-    <div class="card stat"><div class="num">8</div><span>Partner:innen an 4 Standorten: Düsseldorf, Bonn, Frankfurt, München</span></div>
-    <div class="card stat"><div class="num">8 Jahre</div><span>in Folge „Beste Unternehmensberater“ (brand eins &amp; Statista, 2026 in 10 Kategorien)</span></div>
-    <div class="card stat"><div class="num">40+</div><span>Konzerne und Mittelständler als Klienten, u. a. Audi, Bayer, Deutsche Bahn, DHL, E.ON, RWE, Vonovia</span></div>
+    <div class="card stat reveal"><div class="num">1992</div><span>Gegründet als Spin-off der WHU – Otto Beisheim School of Management</span></div>
+    <div class="card stat reveal"><div class="num">8</div><span>Partner:innen an 4 Standorten: Düsseldorf, Bonn, Frankfurt, München</span></div>
+    <div class="card stat reveal"><div class="num">8 Jahre</div><span>in Folge „Beste Unternehmensberater“ (brand eins &amp; Statista, 2026 in 10 Kategorien)</span></div>
+    <div class="card stat reveal"><div class="num">40+</div><span>Konzerne und Mittelständler als Klienten, u. a. Audi, Bayer, Deutsche Bahn, DHL, E.ON, RWE, Vonovia</span></div>
   </div>
-  <p class="note">Zielgruppe: DAX 40, EURO STOXX 50 und mittelständische Marktführer. Die meisten Projekte laufen auf Englisch, national wie international.</p>
+  <div class="twocol" style="margin-top:22px"><svg class="map" viewBox="0 0 520 220" aria-hidden="true"><path d="M30 190 C120 175 200 205 300 185 S470 160 495 120" fill="none" stroke="#e2007a" stroke-opacity=".3" stroke-width="2" stroke-dasharray="5 6" class="flow"/><g font-family="Roboto" font-size="14" font-weight="500" fill="currentColor"><circle class="p" cx="120" cy="60" r="7" fill="#e2007a"/><text x="136" y="65">Düsseldorf</text><circle class="p" cx="130" cy="110" r="7" fill="#860351" style="animation-delay:.4s"/><text x="146" y="115">Bonn</text><circle class="p" cx="215" cy="140" r="7" fill="#e2007a" style="animation-delay:.8s"/><text x="231" y="145">Frankfurt</text><circle class="p" cx="330" cy="190" r="7" fill="#860351" style="animation-delay:1.2s"/><text x="346" y="195">München</text></g></svg><p class="note" style="margin:0">Vier Standorte, ein Team: Die führenden Köpfe arbeiten aktiv in Projekten und im Tagesgeschäft mit. Beratung und Training werden verbunden, damit Veränderung wirkt.</p></div><p class="note">Zielgruppe: DAX 40, EURO STOXX 50 und mittelständische Marktführer. Die meisten Projekte laufen auf Englisch, national wie international.</p>
 </section>
 
 <section id="s2">
   <div class="tag">Geschäftsfelder</div>
   <h2>Vier Beratungsfelder rund um die Unternehmenssteuerung</h2>
   <div class="grid">
-    <div class="card"><h3>Strategie &amp; Transformation</h3><p>Strategie, Digitalisierung und Restrukturierung: Target Operating Models, strategische Positionierung, Organisations-Redesign.</p></div>
-    <div class="card"><h3>Performance Management</h3><p>Integrierte Planung, Forecasting, Management Reporting, Finance Excellence und Nachhaltigkeitssteuerung.</p></div>
-    <div class="card"><h3>Data &amp; Analytics</h3><p>Datenstrategie, Governance, Advanced Analytics, <b>künstliche Intelligenz</b>, SAP S/4HANA und ERP.</p><span class="pill">KI-relevant</span></div>
-    <div class="card"><h3>Change &amp; Training</h3><p>„People, Passion, Performance“: Human Capital, Führungstraining, Kulturwandel, Blended Learning, Executive Community.</p></div>
+    <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/><path d="M4 7l6-4 6 5 5-4"/></svg></div><h3>Strategie &amp; Transformation</h3><p>Strategie, Digitalisierung und Restrukturierung: Target Operating Models, strategische Positionierung, Organisations-Redesign.</p></div>
+    <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 12l5-5M12 6v1M6 12h1M18 12h-1"/></svg></div><h3>Performance Management</h3><p>Integrierte Planung, Forecasting, Management Reporting, Finance Excellence und Nachhaltigkeitssteuerung.</p></div>
+    <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.300 8-3V6M4 12v6c0 1.700 3.600 3 8 3s8-1.300 8-3v-6"/></svg></div><h3>Data &amp; Analytics</h3><p>Datenstrategie, Governance, Advanced Analytics, <b>künstliche Intelligenz</b>, SAP S/4HANA und ERP.</p><span class="pill">KI-relevant</span></div>
+    <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.500"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6"/><circle cx="18" cy="9" r="2.500"/><path d="M17 14c3 0 5 1.500 5 5"/></svg></div><h3>Change &amp; Training</h3><p>„People, Passion, Performance“: Human Capital, Führungstraining, Kulturwandel, Blended Learning, Executive Community.</p></div>
   </div>
   <p class="note">Branchenschwerpunkte: Energie, Telekommunikation, Chemie/Pharma, Finanzen/Versicherung, Handel, Logistik. Besonderheit: Beratung wird mit Training verbunden, damit Veränderung verankert wird.</p>
 </section>
 
-<section id="s3">
+<section id="s3"><svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#e2007a" stroke-width="2"><circle cx="100" cy="100" r="95"/><circle cx="100" cy="100" r="65"/><circle cx="100" cy="100" r="35"/></g></svg>
   <div class="tag">Handelnde Personen</div>
   <h2>Partnerteam</h2>
   <div class="grid">
-    <div class="card"><h3>Dr. Christian Bungenstock</h3><small>Partner · Düsseldorf · Geschäftsführer</small><p>Berät seit 1992. Kostenrechnungsexperte, heute treibende Kraft für datenbasierte, ganzheitliche Steuerungsmethodik.</p></div>
-    <div class="card"><h3>Björn Radtke</h3><small>Partner · Düsseldorf · Geschäftsführer</small><p>Berät seit 1996 Konzerne und öffentliche Organisationen. Arbeitskreise mit der WHU zu Zukunftsthemen im Controlling.</p></div>
-    <div class="card"><h3>Dr. Jörg Ehlken</h3><small>Partner · Düsseldorf · Geschäftsführer</small><p>Planung &amp; Forecasting, Data Strategy, S/4HANA, Predictive Forecasting und Advanced Analytics.</p></div>
-    <div class="card"><h3>Axel Neumann-Giesen</h3><small>Partner · Bonn · Geschäftsführer</small><p>Seit 1998 in Performance Management. Branchen: Chemie, Energie, Logistik, Maschinen- und Anlagenbau.</p></div>
-    <div class="card"><h3>Sjard Hammer</h3><small>Partner · München · Geschäftsführer</small><p>Seit 2004 in der Entwicklung von Steuerungslogik: Strategie, Governance, Führung und Kultur.</p></div>
-    <div class="card"><h3>Gunnar Elbers</h3><small>Partner · Düsseldorf</small><p>Leitet das Kompetenzcenter „Human Capital &amp; Change“, Rollenwandel zum Business Partner.</p></div>
-    <div class="card"><h3>Dr. Thomas Lührmann</h3><small>Partner · Düsseldorf</small><p>Datengetriebenes Performance Management. Autor des Whitepapers „Marktsignale mit KI“.</p></div>
-    <div class="card"><h3>Dr. Helmut Kolmerer</h3><small>Partner · München</small><p>Operating Models und Transformation, Schwerpunkt Versicherungswirtschaft.</p></div>
+    <div class="card reveal"><div class="person"><div class="av">CB</div><div><h3>Dr. Christian Bungenstock</h3><small>Partner · Düsseldorf · Geschäftsführer</small><p>Berät seit 1992. Kostenrechnungsexperte, heute treibende Kraft für datenbasierte, ganzheitliche Steuerungsmethodik.</p></div></div></div>
+    <div class="card reveal"><div class="person"><div class="av">BR</div><div><h3>Björn Radtke</h3><small>Partner · Düsseldorf · Geschäftsführer</small><p>Berät seit 1996 Konzerne und öffentliche Organisationen. Arbeitskreise mit der WHU zu Zukunftsthemen im Controlling.</p></div></div></div>
+    <div class="card reveal"><div class="person"><div class="av">JE</div><div><h3>Dr. Jörg Ehlken</h3><small>Partner · Düsseldorf · Geschäftsführer</small><p>Planung &amp; Forecasting, Data Strategy, S/4HANA, Predictive Forecasting und Advanced Analytics.</p></div></div></div>
+    <div class="card reveal"><div class="person"><div class="av">AN</div><div><h3>Axel Neumann-Giesen</h3><small>Partner · Bonn · Geschäftsführer</small><p>Seit 1998 in Performance Management. Branchen: Chemie, Energie, Logistik, Maschinen- und Anlagenbau.</p></div></div></div>
+    <div class="card reveal"><div class="person"><div class="av">SH</div><div><h3>Sjard Hammer</h3><small>Partner · München · Geschäftsführer</small><p>Seit 2004 in der Entwicklung von Steuerungslogik: Strategie, Governance, Führung und Kultur.</p></div></div></div>
+    <div class="card reveal"><div class="person"><div class="av">GE</div><div><h3>Gunnar Elbers</h3><small>Partner · Düsseldorf</small><p>Leitet das Kompetenzcenter „Human Capital &amp; Change“, Rollenwandel zum Business Partner.</p></div></div></div>
+    <div class="card reveal"><div class="person"><div class="av">TL</div><div><h3>Dr. Thomas Lührmann</h3><small>Partner · Düsseldorf</small><p>Datengetriebenes Performance Management. Autor des Whitepapers „Marktsignale mit KI“.</p></div></div></div>
+    <div class="card reveal"><div class="person"><div class="av">HK</div><div><h3>Dr. Helmut Kolmerer</h3><small>Partner · München</small><p>Operating Models und Transformation, Schwerpunkt Versicherungswirtschaft.</p></div></div></div>
   </div>
   <p class="note">Wissenschaftlicher Beirat an der WHU: Prof. Utz Schäffer und Prof. Jürgen Weber. Titel und Partnerstatus laut ctcon.de; Geschäftsführung laut Handelsregister-Auswertungen (u. a. North Data), die Angaben weichen je nach Quelle leicht ab.</p>
 </section>
@@ -104,14 +133,14 @@ nav a.on{opacity:1;transform:scale(1.4)}
   <div class="tag">Zahlen</div>
   <h2>Umsatz und Größe</h2>
   <div class="grid">
-    <div class="card stat" style="color:var(--ink)"><div class="num">ca. 25 Mio.</div><span>Geschätzter Jahresumsatz (Umsatzklasse 10–50 Mio. €; Drittanbieter-Schätzung ca. 25,8 Mio. US-$)</span></div>
-    <div class="card stat" style="color:var(--ink)"><div class="num">50–200</div><span>Mitarbeitende (Schätzungen; eine Quelle nennt 63 in Deutschland)</span></div>
-    <div class="card stat" style="color:var(--ink)"><div class="num">GmbH</div><span>HRB 4107, Amtsgericht Koblenz, Stammkapital 50.000 €, Sitz Düsseldorf</span></div>
+    <div class="card stat reveal" style="color:var(--ink)"><div class="num">ca. 25 Mio.</div><span>Geschätzter Jahresumsatz (Umsatzklasse 10–50 Mio. €; Drittanbieter-Schätzung ca. 25,8 Mio. US-$)</span></div>
+    <div class="card stat reveal" style="color:var(--ink)"><div class="num">50–200</div><span>Mitarbeitende (Schätzungen; eine Quelle nennt 63 in Deutschland)</span></div>
+    <div class="card stat reveal" style="color:var(--ink)"><div class="num">GmbH</div><span>HRB 4107, Amtsgericht Koblenz, Stammkapital 50.000 €, Sitz Düsseldorf</span></div>
   </div>
   <p class="note">Wichtig: ctcon veröffentlicht keine Umsatzzahl auf der Website. Die Werte stammen von Auskunfts- und Datenportalen (z. B. consulting.de, ZoomInfo, Creditreform) und sind Schätzungen. Belastbare Zahlen stehen in den Jahresabschlüssen im Unternehmensregister/Bundesanzeiger.</p>
 </section>
 
-<section id="s5">
+<section id="s5"><svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#e2007a" stroke-width="2"><circle cx="100" cy="100" r="95"/><circle cx="100" cy="100" r="65"/><circle cx="100" cy="100" r="35"/></g></svg>
   <div class="tag">Wissen &amp; Reichweite</div>
   <h2>Thought Leadership</h2>
   <div class="grid">
@@ -136,13 +165,13 @@ nav a.on{opacity:1;transform:scale(1.4)}
   <p class="note">Eigene Einschätzung der Relevanz für ein KI-Publikum, keine Angabe von ctcon.</p>
 </section>
 
-<section id="s7">
+<section id="s7"><svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#e2007a" stroke-width="2"><circle cx="100" cy="100" r="95"/><circle cx="100" cy="100" r="65"/><circle cx="100" cy="100" r="35"/></g></svg>
   <div class="tag">KI-Themen im Detail</div>
   <h2>Drei starke Aufhänger</h2>
   <div class="grid">
-    <div class="card"><span class="pill">1</span><h3>Always-on Forecasting</h3><p>Das Whitepaper „Forecast 2030+“ beschreibt Prognosen als kontinuierlichen, ereignisgetriebenen Prozess mit Wahrscheinlichkeitsbändern und einer generativen KI-Schnittstelle, mit der man direkt mit Szenarien „spricht“.</p><small>Spannend: von der Quartalsplanung zum Dialog mit der Prognose.</small></div>
-    <div class="card"><span class="pill">2</span><h3>Marktsignale mit KI</h3><p>Externe Signale wie Wettbewerb, Regulierung und Technologie systematisch erfassen, bewerten und in Steuerungsimpulse übersetzen, inklusive Governance für verlässliche Ergebnisse.</p><small>Spannend: KI als Frühwarnsystem für das Management.</small></div>
-    <div class="card"><span class="pill">3</span><h3>Digitaler Zwilling bei Vonovia</h3><p>Das Projekt „TiVO“ bündelt Instandhaltungs-, Modernisierungs-, Bau- und Finanzdaten. Rund 500 Nutzer steuern damit Wirtschaftlichkeit, Produktivität und Qualität.</p><small>Spannend: ein konkreter Praxisfall mit Konzernmaßstab.</small></div>
+    <div class="card reveal"><svg class="viz" viewBox="0 0 300 130" aria-hidden="true"><path d="M20 90 L120 70" stroke="#860351" stroke-width="3" fill="none"/><path d="M120 70 L280 20 L280 110 Z" fill="#e2007a" fill-opacity=".18"/><path d="M120 70 L280 45 L280 85 Z" fill="#e2007a" fill-opacity=".3"/><path d="M120 70 L280 65" stroke="#e2007a" stroke-width="3" stroke-dasharray="6 5" fill="none" class="flow"/><circle cx="120" cy="70" r="5" fill="#860351"/><line x1="120" y1="10" x2="120" y2="120" stroke="#6c757d" stroke-dasharray="2 4"/><text x="124" y="18" font-size="9" fill="#6c757d">heute</text></svg><span class="pill">1</span><h3>Always-on Forecasting</h3><p>Das Whitepaper „Forecast 2030+“ beschreibt Prognosen als kontinuierlichen, ereignisgetriebenen Prozess mit Wahrscheinlichkeitsbändern und einer generativen KI-Schnittstelle, mit der man direkt mit Szenarien „spricht“.</p><small>Spannend: von der Quartalsplanung zum Dialog mit der Prognose.</small></div>
+    <div class="card reveal"><svg class="viz" viewBox="0 0 300 130" aria-hidden="true"><g transform="translate(150,65)" fill="none" stroke="#860351" stroke-opacity=".35"><circle r="55"/><circle r="36"/><circle r="18"/><path d="M-60 0H60M0 -58V58"/></g><path d="M150 25 L190 55 L170 100 L120 90 L105 55Z" fill="#e2007a" fill-opacity=".25" stroke="#e2007a" stroke-width="2"/><g fill="#860351"><circle class="p" cx="150" cy="25" r="5"/><circle class="p" cx="190" cy="55" r="5" style="animation-delay:.6s"/><circle class="p" cx="170" cy="100" r="5" style="animation-delay:1.2s"/></g><g font-size="9" fill="#6c757d"><text x="40" y="50">Wettbewerb</text><text x="200" y="40">Regulierung</text><text x="200" y="110">Technologie</text></g></svg><span class="pill">2</span><h3>Marktsignale mit KI</h3><p>Externe Signale wie Wettbewerb, Regulierung und Technologie systematisch erfassen, bewerten und in Steuerungsimpulse übersetzen, inklusive Governance für verlässliche Ergebnisse.</p><small>Spannend: KI als Frühwarnsystem für das Management.</small></div>
+    <div class="card reveal"><svg class="viz" viewBox="0 0 300 130" aria-hidden="true"><g fill="#860351"><rect x="40" y="55" width="40" height="60" rx="3"/><rect x="85" y="35" width="40" height="80" rx="3"/><rect x="130" y="65" width="40" height="50" rx="3"/></g><g fill="#fff"><rect x="48" y="63" width="8" height="8"/><rect x="64" y="63" width="8" height="8"/><rect x="93" y="43" width="8" height="8"/><rect x="109" y="43" width="8" height="8"/><rect x="93" y="59" width="8" height="8"/><rect x="138" y="73" width="8" height="8"/></g><g fill="none" stroke="#e2007a" stroke-width="2" stroke-dasharray="4 4" class="flow"><path d="M175 85 C200 85 205 50 225 50"/><path d="M175 95 C200 95 205 90 225 90"/></g><g fill="#e2007a"><rect x="225" y="35" width="55" height="30" rx="4" fill-opacity=".25" stroke="#e2007a"/><rect x="225" y="75" width="55" height="30" rx="4" fill-opacity=".25" stroke="#e2007a"/></g><path d="M232 58 l12-10 l10 6 l12-12" stroke="#860351" stroke-width="2" fill="none"/><rect x="232" y="96" width="8" height="-1"/><g fill="#860351"><rect x="233" y="90" width="6" height="10"/><rect x="243" y="84" width="6" height="16"/><rect x="253" y="94" width="6" height="6"/><rect x="263" y="82" width="6" height="18"/></g></svg><span class="pill">3</span><h3>Digitaler Zwilling bei Vonovia</h3><p>Das Projekt „TiVO“ bündelt Instandhaltungs-, Modernisierungs-, Bau- und Finanzdaten. Rund 500 Nutzer steuern damit Wirtschaftlichkeit, Produktivität und Qualität.</p><small>Spannend: ein konkreter Praxisfall mit Konzernmaßstab.</small></div>
   </div>
   <p class="note">Weitere Anknüpfungspunkte: Handel mit Analytics (Frischesortiment, Sortimentstrends), Turnaround mit Daten, Data-Scientist-Karrierepfad, Rolle des Controllings als Architekt der KI-Governance.</p>
 </section>
@@ -159,6 +188,7 @@ const secs=[...document.querySelectorAll('section')],nav=document.getElementById
 secs.forEach((s,i)=>{const a=document.createElement('a');a.href='#'+s.id;nav.appendChild(a)});
 const dots=[...nav.children];
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)dots.forEach((d,i)=>d.classList.toggle('on',secs[i]===e.target))}),{threshold:.55}).observe&&secs.forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)dots.forEach((d,i)=>d.classList.toggle('on',secs[i]===e.target))}),{threshold:.55}).observe(s));
+document.querySelectorAll('.reveal').forEach((e,i)=>{e.style.transitionDelay=(i%4)*90+'ms'});const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
 addEventListener('keydown',e=>{const cur=Math.round(scrollY/innerHeight);
  if(['ArrowDown','PageDown',' ','ArrowRight'].includes(e.key)){e.preventDefault();secs[Math.min(cur+1,secs.length-1)].scrollIntoView()}
  if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){e.preventDefault();secs[Math.max(cur-1,0)].scrollIntoView()}});
