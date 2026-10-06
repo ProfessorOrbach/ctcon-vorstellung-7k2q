@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>CTcon Unternehmenspräsentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--berry:#860351;--pink:#e2007a;--dark:#51002e;--grey:#6c757d;--ink:#212529;--light:#f8f9fa;--line:#dee2e6;--bg:#fff;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#1b0a14;--card:#2a1020;--ink:#f3e9ee;--light:#2a1020;--line:#4a2a3c;--grey:#b9a3af}}
+*{box-sizing:border-box;margin:0}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+body{font-family:Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+section{min-height:100vh;scroll-snap-align:start;padding:6vh max(24px,7vw);display:flex;flex-direction:column;justify-content:center;position:relative}
+.grad{background:linear-gradient(135deg,var(--dark),var(--berry) 55%,var(--pink));color:#fff}
+.tag{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--pink);margin-bottom:.6rem}
+.grad .tag{color:#fff;opacity:.8}
+h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:900;line-height:1.05}
+h2{font-size:clamp(1.8rem,4vw,2.9rem);font-weight:700;color:var(--berry);margin-bottom:1.6rem;line-height:1.15}
+.grad h2{color:#fff}
+@media (prefers-color-scheme:dark){h2{color:#ff5fb0}}
+.lead{font-size:clamp(1.05rem,2vw,1.5rem);font-weight:300;max-width:46ch;margin-top:1.2rem}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--pink);border-radius:6px;padding:20px 22px}
+.card h3{color:var(--berry);font-size:1.15rem;margin-bottom:.4rem}
+@media (prefers-color-scheme:dark){.card h3{color:#ff5fb0}}
+.card p,.card li{font-size:.95rem;color:var(--ink)}
+.card ul{padding-left:1.1rem}
+.card small{color:var(--grey)}
+.num{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;color:var(--pink);line-height:1}
+.stat{display:flex;flex-direction:column;gap:6px}
+.stat span{font-size:.9rem;color:var(--grey)}
+.pill{display:inline-block;background:var(--pink);color:#fff;border-radius:99px;padding:2px 12px;font-size:.75rem;font-weight:500;margin-bottom:8px}
+.pill.o{background:transparent;border:1px solid var(--pink);color:var(--pink)}
+.note{font-size:.8rem;color:var(--grey);margin-top:1.4rem;max-width:90ch}
+.grad .note{color:#fff;opacity:.75}
+.bars{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.bar{display:grid;grid-template-columns:150px 1fr 40px;align-items:center;gap:10px;font-size:.9rem}
+.bar i{display:block;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--berry),var(--pink))}
+.logo{font-weight:900;font-size:1.6rem;letter-spacing:-.02em;position:absolute;top:4vh;left:max(24px,7vw)}
+.logo b{color:var(--pink)}
+nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:9}
+nav a{width:9px;height:9px;border-radius:50%;background:var(--pink);opacity:.35;display:block}
+nav a.on{opacity:1;transform:scale(1.4)}
+.hint{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);font-size:.75rem;color:var(--grey);z-index:9}
+@media(max-width:700px){nav{display:none}.bar{grid-template-columns:110px 1fr 34px}}
+@media print{section{min-height:auto;page-break-after:always}nav,.hint{display:none}}
+</style>
+</head>
+<body>
+<nav id="nav"></nav>
+<div class="hint">↑ ↓ / Leertaste zum Blättern</div>
+
+<section class="grad" id="s0">
+  <div class="tag">Unternehmenspräsentation</div>
+  <h1>CT<span style="opacity:.75">con</span></h1>
+  <p class="lead">Die Top-Managementberatung für Unternehmenssteuerung – Analyse, Konzeption, Umsetzung und Verankerung.</p>
+  <p class="note">Quelle: ctcon.de · Stand Oktober 2026 · Zusammenstellung aus öffentlich verfügbaren Informationen</p>
+</section>
+
+<section id="s1">
+  <div class="tag">Auf einen Blick</div>
+  <h2>Beratung für CEOs und CFOs seit 1992</h2>
+  <div class="grid">
+    <div class="card stat"><div class="num">1992</div><span>Gegründet als Spin-off der WHU – Otto Beisheim School of Management</span></div>
+    <div class="card stat"><div class="num">8</div><span>Partner:innen an 4 Standorten: Düsseldorf, Bonn, Frankfurt, München</span></div>
+    <div class="card stat"><div class="num">8 Jahre</div><span>in Folge „Beste Unternehmensberater“ (brand eins &amp; Statista, 2026 in 10 Kategorien)</span></div>
+    <div class="card stat"><div class="num">40+</div><span>Konzerne und Mittelständler als Klienten, u. a. Audi, Bayer, Deutsche Bahn, DHL, E.ON, RWE, Vonovia</span></div>
+  </div>
+  <p class="note">Zielgruppe: DAX 40, EURO STOXX 50 und mittelständische Marktführer. Die meisten Projekte laufen auf Englisch, national wie international.</p>
+</section>
+
+<section id="s2">
+  <div class="tag">Geschäftsfelder</div>
+  <h2>Vier Beratungsfelder rund um die Unternehmenssteuerung</h2>
+  <div class="grid">
+    <div class="card"><h3>Strategie &amp; Transformation</h3><p>Strategie, Digitalisierung und Restrukturierung: Target Operating Models, strategische Positionierung, Organisations-Redesign.</p></div>
+    <div class="card"><h3>Performance Management</h3><p>Integrierte Planung, Forecasting, Management Reporting, Finance Excellence und Nachhaltigkeitssteuerung.</p></div>
+    <div class="card"><h3>Data &amp; Analytics</h3><p>Datenstrategie, Governance, Advanced Analytics, <b>künstliche Intelligenz</b>, SAP S/4HANA und ERP.</p><span class="pill">KI-relevant</span></div>
+    <div class="card"><h3>Change &amp; Training</h3><p>„People, Passion, Performance“: Human Capital, Führungstraining, Kulturwandel, Blended Learning, Executive Community.</p></div>
+  </div>
+  <p class="note">Branchenschwerpunkte: Energie, Telekommunikation, Chemie/Pharma, Finanzen/Versicherung, Handel, Logistik. Besonderheit: Beratung wird mit Training verbunden, damit Veränderung verankert wird.</p>
+</section>
+
+<section id="s3">
+  <div class="tag">Handelnde Personen</div>
+  <h2>Partnerteam</h2>
+  <div class="grid">
+    <div class="card"><h3>Dr. Christian Bungenstock</h3><small>Partner · Düsseldorf · Geschäftsführer</small><p>Berät seit 1992. Kostenrechnungsexperte, heute treibende Kraft für datenbasierte, ganzheitliche Steuerungsmethodik.</p></div>
+    <div class="card"><h3>Björn Radtke</h3><small>Partner · Düsseldorf · Geschäftsführer</small><p>Berät seit 1996 Konzerne und öffentliche Organisationen. Arbeitskreise mit der WHU zu Zukunftsthemen im Controlling.</p></div>
+    <div class="card"><h3>Dr. Jörg Ehlken</h3><small>Partner · Düsseldorf · Geschäftsführer</small><p>Planung &amp; Forecasting, Data Strategy, S/4HANA, Predictive Forecasting und Advanced Analytics.</p></div>
+    <div class="card"><h3>Axel Neumann-Giesen</h3><small>Partner · Bonn · Geschäftsführer</small><p>Seit 1998 in Performance Management. Branchen: Chemie, Energie, Logistik, Maschinen- und Anlagenbau.</p></div>
+    <div class="card"><h3>Sjard Hammer</h3><small>Partner · München · Geschäftsführer</small><p>Seit 2004 in der Entwicklung von Steuerungslogik: Strategie, Governance, Führung und Kultur.</p></div>
+    <div class="card"><h3>Gunnar Elbers</h3><small>Partner · Düsseldorf</small><p>Leitet das Kompetenzcenter „Human Capital &amp; Change“, Rollenwandel zum Business Partner.</p></div>
+    <div class="card"><h3>Dr. Thomas Lührmann</h3><small>Partner · Düsseldorf</small><p>Datengetriebenes Performance Management. Autor des Whitepapers „Marktsignale mit KI“.</p></div>
+    <div class="card"><h3>Dr. Helmut Kolmerer</h3><small>Partner · München</small><p>Operating Models und Transformation, Schwerpunkt Versicherungswirtschaft.</p></div>
+  </div>
+  <p class="note">Wissenschaftlicher Beirat an der WHU: Prof. Utz Schäffer und Prof. Jürgen Weber. Titel und Partnerstatus laut ctcon.de; Geschäftsführung laut Handelsregister-Auswertungen (u. a. North Data), die Angaben weichen je nach Quelle leicht ab.</p>
+</section>
+
+<section class="grad" id="s4">
+  <div class="tag">Zahlen</div>
+  <h2>Umsatz und Größe</h2>
+  <div class="grid">
+    <div class="card stat" style="color:var(--ink)"><div class="num">ca. 25 Mio.</div><span>Geschätzter Jahresumsatz (Umsatzklasse 10–50 Mio. €; Drittanbieter-Schätzung ca. 25,8 Mio. US-$)</span></div>
+    <div class="card stat" style="color:var(--ink)"><div class="num">50–200</div><span>Mitarbeitende (Schätzungen; eine Quelle nennt 63 in Deutschland)</span></div>
+    <div class="card stat" style="color:var(--ink)"><div class="num">GmbH</div><span>HRB 4107, Amtsgericht Koblenz, Stammkapital 50.000 €, Sitz Düsseldorf</span></div>
+  </div>
+  <p class="note">Wichtig: ctcon veröffentlicht keine Umsatzzahl auf der Website. Die Werte stammen von Auskunfts- und Datenportalen (z. B. consulting.de, ZoomInfo, Creditreform) und sind Schätzungen. Belastbare Zahlen stehen in den Jahresabschlüssen im Unternehmensregister/Bundesanzeiger.</p>
+</section>
+
+<section id="s5">
+  <div class="tag">Wissen &amp; Reichweite</div>
+  <h2>Thought Leadership</h2>
+  <div class="grid">
+    <div class="card"><h3>Whitepapers</h3><ul><li>Forecast 2030+</li><li>Marktsignale mit KI</li><li>Predictive Forecasting verankern</li><li>Self-Assessment datengetriebene Steuerung</li></ul></div>
+    <div class="card"><h3>Podcast „Zielführung starten“</h3><p>Management-Podcast mit inzwischen über 45 Folgen.</p></div>
+    <div class="card"><h3>Netzwerk</h3><p>Exklusiver Austausch für Top-Entscheider, Kooperation mit Center for Controlling &amp; Management und International Group of Controlling.</p></div>
+    <div class="card"><h3>Newsletter</h3><p>Quartalsweise Fachbeiträge zu Steuerung, Analytics und Transformation.</p></div>
+  </div>
+</section>
+
+<section class="grad" id="s6">
+  <div class="tag">Für den KI-Vortrag</div>
+  <h2>Welche Felder sind spannend?</h2>
+  <div class="bars" style="color:#fff">
+    <div class="bar"><span>Predictive Forecasting</span><i style="width:96%"></i><span>★★★</span></div>
+    <div class="bar"><span>Marktsignale mit KI</span><i style="width:92%"></i><span>★★★</span></div>
+    <div class="bar"><span>Digitaler Zwilling</span><i style="width:84%"></i><span>★★★</span></div>
+    <div class="bar"><span>Data &amp; Analytics</span><i style="width:78%"></i><span>★★</span></div>
+    <div class="bar"><span>Planung mit SAP SAC</span><i style="width:60%"></i><span>★★</span></div>
+    <div class="bar"><span>Human Capital &amp; Change</span><i style="width:55%"></i><span>★★</span></div>
+  </div>
+  <p class="note">Eigene Einschätzung der Relevanz für ein KI-Publikum, keine Angabe von ctcon.</p>
+</section>
+
+<section id="s7">
+  <div class="tag">KI-Themen im Detail</div>
+  <h2>Drei starke Aufhänger</h2>
+  <div class="grid">
+    <div class="card"><span class="pill">1</span><h3>Always-on Forecasting</h3><p>Das Whitepaper „Forecast 2030+“ beschreibt Prognosen als kontinuierlichen, ereignisgetriebenen Prozess mit Wahrscheinlichkeitsbändern und einer generativen KI-Schnittstelle, mit der man direkt mit Szenarien „spricht“.</p><small>Spannend: von der Quartalsplanung zum Dialog mit der Prognose.</small></div>
+    <div class="card"><span class="pill">2</span><h3>Marktsignale mit KI</h3><p>Externe Signale wie Wettbewerb, Regulierung und Technologie systematisch erfassen, bewerten und in Steuerungsimpulse übersetzen, inklusive Governance für verlässliche Ergebnisse.</p><small>Spannend: KI als Frühwarnsystem für das Management.</small></div>
+    <div class="card"><span class="pill">3</span><h3>Digitaler Zwilling bei Vonovia</h3><p>Das Projekt „TiVO“ bündelt Instandhaltungs-, Modernisierungs-, Bau- und Finanzdaten. Rund 500 Nutzer steuern damit Wirtschaftlichkeit, Produktivität und Qualität.</p><small>Spannend: ein konkreter Praxisfall mit Konzernmaßstab.</small></div>
+  </div>
+  <p class="note">Weitere Anknüpfungspunkte: Handel mit Analytics (Frischesortiment, Sortimentstrends), Turnaround mit Daten, Data-Scientist-Karrierepfad, Rolle des Controllings als Architekt der KI-Governance.</p>
+</section>
+
+<section class="grad" id="s8">
+  <div class="tag">Kontakt</div>
+  <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Zielführung starten.</h1>
+  <p class="lead">CTcon GmbH · Burggrafenstr. 5, 40545 Düsseldorf<br>+49 211 577903-0 · kontakt@ctcon.de · www.ctcon.de</p>
+  <p class="note">Inoffizielle Zusammenstellung aus öffentlichen Quellen im Look der CTcon-Farben. Keine Veröffentlichung durch CTcon.</p>
+</section>
+
+<script>
+const secs=[...document.querySelectorAll('section')],nav=document.getElementById('nav');
+secs.forEach((s,i)=>{const a=document.createElement('a');a.href='#'+s.id;nav.appendChild(a)});
+const dots=[...nav.children];
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)dots.forEach((d,i)=>d.classList.toggle('on',secs[i]===e.target))}),{threshold:.55}).observe&&secs.forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)dots.forEach((d,i)=>d.classList.toggle('on',secs[i]===e.target))}),{threshold:.55}).observe(s));
+addEventListener('keydown',e=>{const cur=Math.round(scrollY/innerHeight);
+ if(['ArrowDown','PageDown',' ','ArrowRight'].includes(e.key)){e.preventDefault();secs[Math.min(cur+1,secs.length-1)].scrollIntoView()}
+ if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){e.preventDefault();secs[Math.max(cur-1,0)].scrollIntoView()}});
+</script>
+</body>
+</html>
