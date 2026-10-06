@@ -90,6 +90,18 @@ nav a.on{opacity:1;transform:scale(1.4)}
 .ctrl .t{margin-left:auto;font-variant-numeric:tabular-nums}
 .play:focus-visible,.sp:focus-visible,.sk:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 @media(max-width:800px){.pod{grid-template-columns:1fr}}
+
+/* flug video */
+.vid{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px rgba(81,0,46,.35);background:#51002e;aspect-ratio:16/9;width:100%}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.vid .lg{position:absolute;top:14px;left:18px;color:#fff;font-weight:900;font-size:clamp(1.1rem,2.4vw,1.8rem);letter-spacing:-.02em;text-shadow:0 2px 10px rgba(0,0,0,.45)}
+.vid .lg span{opacity:.8}
+.vid .sl{position:absolute;left:0;right:0;bottom:0;padding:34px 20px 16px;background:linear-gradient(0deg,rgba(45,0,26,.8),transparent);color:#fff;font-weight:500;font-size:clamp(1rem,2.2vw,1.6rem);letter-spacing:.02em;animation:sl 8s infinite}
+.vid .sl b{color:#ff5fb0}
+@keyframes sl{0%,25%{opacity:0;transform:translateY(10px)}40%,92%{opacity:1;transform:none}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.vid .sl{animation:none}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.chips span{border:1px solid var(--pink);color:var(--pink);border-radius:99px;padding:5px 16px;font-size:.9rem;font-weight:500}
 </style>
 </head>
 <body>
@@ -112,6 +124,18 @@ nav a.on{opacity:1;transform:scale(1.4)}
     <div class="card stat reveal"><div class="num">40+</div><span>Konzerne und Mittelständler als Klienten, u. a. Audi, Bayer, Deutsche Bahn, DHL, E.ON, RWE, Vonovia</span></div>
   </div>
   <div class="twocol" style="margin-top:22px"><svg class="map" viewBox="0 0 520 220" aria-hidden="true"><path d="M30 190 C120 175 200 205 300 185 S470 160 495 120" fill="none" stroke="#e2007a" stroke-opacity=".3" stroke-width="2" stroke-dasharray="5 6" class="flow"/><g font-family="Roboto" font-size="14" font-weight="500" fill="currentColor"><circle class="p" cx="120" cy="60" r="7" fill="#e2007a"/><text x="136" y="65">Düsseldorf</text><circle class="p" cx="130" cy="110" r="7" fill="#860351" style="animation-delay:.4s"/><text x="146" y="115">Bonn</text><circle class="p" cx="215" cy="140" r="7" fill="#e2007a" style="animation-delay:.8s"/><text x="231" y="145">Frankfurt</text><circle class="p" cx="330" cy="190" r="7" fill="#860351" style="animation-delay:1.2s"/><text x="346" y="195">München</text></g></svg><p class="note" style="margin:0">Vier Standorte, ein Team: Die führenden Köpfe arbeiten aktiv in Projekten und im Tagesgeschäft mit. Beratung und Training werden verbunden, damit Veränderung wirkt.</p></div><p class="note">Zielgruppe: DAX 40, EURO STOXX 50 und mittelständische Marktführer. Die meisten Projekte laufen auf Englisch, national wie international.</p>
+</section>
+
+<section id="s1b">
+  <div class="tag">Standorte</div>
+  <h2>Von Düsseldorf in ganz Deutschland</h2>
+  <div class="twocol">
+    <div class="vid reveal"><video src="flug.mp4" autoplay muted loop playsinline preload="auto" aria-label="Animation: Ein kleines Flugzeug fliegt über eine Deutschlandkarte zu den CTcon-Standorten"></video><div class="lg">CT<span>con</span></div><div class="sl"><b>Zielführung</b> starten</div></div>
+    <div>
+      <p class="lead" style="margin-top:0;color:var(--ink)">Vier Standorte, kurze Wege zu den Klienten: Der Hauptsitz in Düsseldorf, dazu Bonn, Frankfurt und München.</p>
+      <div class="chips"><span>Düsseldorf</span><span>Bonn</span><span>Frankfurt</span><span>München</span></div>
+    </div>
+  </div>
 </section>
 
 <section id="s2">
